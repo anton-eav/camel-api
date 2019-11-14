@@ -1,0 +1,58 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.2.RELEASE'
+		camelVersion = '2.24.2'
+		hawtioVersion = '2.8.0'
+
+		appVersion = "1.0."
+		buildNumber = (System.getenv("BUILD_NUMBER")?.toString()?.toInteger() ?: 0)
+		appName = 'camel.jar'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'eclipse-wtp'
+
+version appVersion + buildNumber
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+bootJar { archiveName = appName }
+
+task bootJarCustom (type: Copy, dependsOn:bootJar){
+	from "build/libs"
+	into "./build"
+	include (appName)
+}
+configure(bootJarCustom) {
+	group = BasePlugin.BUILD_GROUP
+	description = 'Assembles bootJar task and copy wars to build directory of root project'
+}
+
+dependencies {
+	springBoot { buildInfo() }
+    implementation("org.projectlombok:lombok")
+	implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+	implementation("org.springframework.boot:spring-boot-starter-data-jdbc:${springBootVersion}")
+	implementation("org.postgresql:postgresql:42.2.5")
+	implementation("org.json:json:20090211")
+	implementation("io.springfox:springfox-swagger2:2.9.2")
+	implementation("io.springfox:springfox-swagger-ui:2.9.2")
+	implementation("org.apache.camel:camel-core:${camelVersion}")
+	implementation("org.apache.camel:camel-spring:${camelVersion}")
+	implementation("org.apache.camel:camel-jetty:${camelVersion}")
+	implementation("org.apache.camel:camel-http:${camelVersion}")
+	testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+
+}
