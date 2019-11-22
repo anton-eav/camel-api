@@ -62,15 +62,22 @@ public class CamelDemo {
                 @Override
                 public void configure() throws Exception {
                     from("jetty:http://0.0.0.0:8081/districts?matchOnUriPrefix=true&httpMethodRestrict=POST")
-                            .to("http:10.5.31.72:8803/catalogue/addresses/search?page=0&size=10&httpMethod=POST&bridgeEndpoint=true");
+                            .to("http:10.5.31.72:8803/catalogue/addresses/search" +
+                                    "?page=0" +
+                                    "&size=10" +
+                                    "&httpMethod=POST" +
+                                    "&bridgeEndpoint=true");
 //                            .process(myCustomProcessor);
                 }
             });
 
-//            route>
-//    <from uri="jetty:http://0.0.0.0:8080/myapp?matchOnUriPrefix=true"/>
-//    <to uri="jetty:http://realserverhostname:8090/myapp?bridgeEndpoint=true&amp;throwExceptionOnFailure=false"/>
-//  </route>
+//            context.addRoutes(new RouteBuilder() {
+//                @Override
+//                public void configure() throws Exception {
+//                    from("jetty:http://0.0.0.0:8081/config_def?matchOnUriPrefix=true")
+//                            .to("file://C:/Users/av.eliseev/Documents/common/camel-api?fileName=config_def.json&bridgeEndpoint=true");
+//                }
+//            });
             context.start();
         } catch (Exception e) {
             e.printStackTrace();

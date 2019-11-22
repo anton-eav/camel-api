@@ -1,0 +1,124 @@
+[
+  {
+    "generalInfo": {
+      "tableName": "assd.heat_sources",
+      "descriptionTable": "Источники теплоснабжения",
+      "parentTableName": null,
+      "sequenceTable": "1",
+      "pathTable": "1",
+      "rowNumber": null
+    },
+    "fieldsTable": [
+      {
+        "nameField": "row_number",
+        "descriptionField": "№ п.п.",
+        "typeField": "int",
+        "linkTable": null
+      },
+      {
+        "nameField": "id",
+        "descriptionField": "идентификатор записи в таблице",
+        "typeField": "text",
+        "linkTable": null
+      },
+      {
+        "nameField": "ts",
+        "descriptionField": "Метка времени строки в таблице.",
+        "typeField": "timestamp",
+        "linkTable": null
+      },
+      {
+        "nameField": "id_address",
+        "descriptionField": null,
+        "typeField": "text",
+        "linkTable": null
+      },
+      {
+        "nameField": "code_department",
+        "descriptionField": null,
+        "typeField": "text",
+        "linkTable": null
+      }
+    ],
+    "formsTable": {
+      "elementForm": "Форма №1",
+      "listForm": "f_list",
+      "selectFrom": "f_select",
+      "forms": [
+        {
+          "title": "Форма №1",
+          "typeElement": "elementForm",
+          "width": "100%",
+          "height": "100%",
+          "children":[
+            {
+              "title": "Наименование",
+              "typeElement": "field",
+              "marginTop": "1px",
+              "marginRight": "1px",
+              "marginBottom": "1px",
+              "marginLeft": "1px",
+              "paddingTop": "5px",
+              "paddingRight": "45px",
+              "paddingBottom": "5px",
+              "paddingLeft": "5px"
+            },
+            {
+              "title": "Группа 1",
+              "typeElement": "group",
+              "marginTop": "6px",
+              "marginRight": "6px",
+              "marginBottom": "16px",
+              "marginLeft": "6px",
+              "paddingTop": "3px",
+              "paddingRight": "3px",
+              "paddingBottom": "3px",
+              "paddingLeft": "3px",
+              "children":[
+                {
+                  "title": "Код",
+                  "typeElement": "field",
+                  "marginTop": "2px",
+                  "marginRight": "2px",
+                  "marginBottom": "2px",
+                  "marginLeft": "2px",
+                  "paddingTop": "1px",
+                  "paddingRight": "1px",
+                  "paddingBottom": "1px",
+                  "paddingLeft": "1px"
+                },
+                {
+                  "title": "Описание",
+                  "typeElement": "field",
+                  "marginTop": "5px",
+                  "marginRight": "5px",
+                  "marginBottom": "5px",
+                  "marginLeft": "5px",
+                  "paddingTop": "4px",
+                  "paddingRight": "4px",
+                  "paddingBottom": "4px",
+                  "paddingLeft": "4px"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "f_list",
+          "typeElement": "",
+          "children":[]
+        },
+        {
+          "title": "f_select",
+          "typeElement": "",
+          "children":[]
+        },
+        {
+          "title": "f_none",
+          "typeElement": "",
+          "children":[]
+        }
+      ]
+    }
+  }
+]
